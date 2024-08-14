@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/login_app
+    username: mysql_user
+    password: mysql_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa: 
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate: 
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  mail:
+    host: localhost
+    port: 1025
+    username: mail-user
+    password: mail-password
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls: 
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+  thymeleaf:
+    prefix:
+      classpath:/templates/
+    suffix: .html
+
+application:
+  security:
+    jwt:
+      secret-key: ba0b4c9fe53aabb765e09837e21633221f91570f58065bb41a6e9b9f52bc302204928ca63bbe56c6bc4fa805c6daf2e2b3dffa2554cd03e562be3504adb60b2d2e57cc5ea393d3ba3106a5e482039fd6d96cb05ad348ad6db7aab7b776556200899c48dd47ac4b941aeff67cda10a75ee5a620dccb3bdd862b88975a834ce97ccd79d6ae0e2ee55b7c9fd502892a246bd185859c4eb65684300c7a51425febc6558c65c5b66565f3edbab9d82df7172680812cf8bd47703dfa26b0d6a20ed15ad32d6a28e2cd05fa75a558105e3f8dc27ebe3e13e6dc83456f80f2c6aa8f392cb59f1c27bd81ae8b448b8e0f560d59f83de19043068f10a08513b0c49d37785d
+      expiration: 8640000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+
+server:
+  port: 8080
